@@ -11,15 +11,18 @@ from alembic import operations
 import decimal
 import logging
 
-date_regexes = [r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}([+-]\d{2}:\d{2}|Z)?$']
-number_regexes = [r'^([1-9][0-9]+|[0-9])(\.[0-9]+$|$)']
+date_regexes = [
+    r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}([+-]\d{2}:\d{2}|Z)?$', 
+    r'^[0-9]{4}-[0-9]{2}-[0-9]{2}$'
+    ]
 
+number_regexes = [r'^([1-9][0-9]+|[0-9])(\.[0-9]+$|$)']
 
 def is_datetime(ds: pd.Series) -> bool:
 
     try:
         assert ds.dropna().shape[0] != 0
-        assert all([ds.str.match(regex).all() for regex in date_regexes])
+        assert any([ds.str.match(regex).all() for regex in date_regexes])
         return True
     except:
         return False
@@ -29,7 +32,7 @@ def is_numeric(ds: pd.Series) -> bool:
 
     try:
         assert ds.dropna().shape[0] != 0
-        assert all([ds.str.match(regex).all() for regex in number_regexes])
+        assert any([ds.str.match(regex).all() for regex in number_regexes])
         return True
     except:
         return False
