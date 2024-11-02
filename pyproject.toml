@@ -1,20 +1,20 @@
 [build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "df_to_sql"
-version = "2.0.0"
+dynamic = ["version"]
 authors = [
   { name="Adam Patterson", email="adam@faranalytics.net" },
 ]
-description = ""
+description = "DataFrame to SQL facilitates importing Pandas DataFrames into SQL databases.  It automates table and type migrations and deduplication of records."
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
-    "alembic >= 1.8.*",
-    "pandas >= 1.*",
-    "SQLAlchemy >= 1.4.*"
+    "alembic>=1.8.0, <2",
+    "pandas>=1.0.0, <2",
+    "SQLAlchemy>=1.4.0, <2"
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -25,3 +25,6 @@ classifiers = [
 [project.urls]
 "Homepage" = "https://github.com/faranalytics/df_to_sql.git"
 "Bug Tracker" = "https://github.com/faranalytics/df_to_sql/issues"
+
+[tool.hatch.version]
+path = "src/df_to_sql/__about__.py"
