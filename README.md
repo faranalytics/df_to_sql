@@ -1,4 +1,4 @@
-# df_to_sql
+# DataFrame To SQL
 
 **NB** This project is deprecated.  I think there are better ways to accomplish this task.  However, there are alot of useful examples of working with SQL Alchemy in the code of this project; hence, I want to maintain this for reference.
 
