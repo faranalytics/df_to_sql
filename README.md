@@ -49,8 +49,3 @@ print(df.shape)
 dtype: object
 (5, 4)
 ```
-
-## Install
-```bash
-pip install df_to_sql
-```
