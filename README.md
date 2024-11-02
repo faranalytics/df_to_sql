@@ -1,5 +1,7 @@
 # df_to_sql
 
+**NB** This project is deprecated.  I think there are better ways to accomplish this task.  However, there are alot of useful examples of working with SQL Alchemy in the code of this project; hence, I want to maintain this for reference.
+
 DataFrame to SQL facilitates importing Pandas DataFrames into SQL databases.  It automates table and type migrations and deduplication of records.
 
 ## Usage
